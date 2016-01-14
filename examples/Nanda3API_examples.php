@@ -4,9 +4,9 @@ session_start();
 // include("config.php");
 // Host running Nanda API
 //$apiHostname = "http://api-test.nanda.io";
-$apiHostname = "http://nanda3-vm.local:8080";
+$apiHostname = "http://api.nanda.io";
 // Nanda 3 Account username
-$apiUserEmail = "mbolt@roboinvest.nl";
+$apiUserEmail = "carsten@presis.nl";
 // Nanda 3 Account password
 $apiUserPassword = "test";
 
