@@ -45,7 +45,8 @@ $Nanda3Service = new Nanda3APIObject($params);
 $auth = $Nanda3Service->auth();
 
 
-	print "auth result: $auth";
+	print "auth result:";
+	print_r($auth);
 	exit;
 
 
