@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("config.php");
-include("Nanda3API/Nanda3API.php");
+include("../src/Nanda/Nanda3API.php");
 
 
 $LBC = "\n";

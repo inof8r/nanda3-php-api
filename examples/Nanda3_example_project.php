@@ -20,7 +20,7 @@ include("../src/Nanda/Nanda3API.php");
 </head>
 <body>
 Nanda3 PHP Client API examples:<br>
-<?php
+<?
 // Simple list processor
 function processItemList($lst) {
 	foreach($lst as $ln => $lv) {
@@ -40,12 +40,6 @@ $params["userPassword"] = $apiUserPassword;
 $Nanda3Service = new Nanda3APIObject($params);
 $auth = $Nanda3Service->auth();
 
-print "<br><strong>Acounts:</strong><br>";
-$account_params = Array();
-$acounts = $Nanda3Service->getAccounts($account_params);
-$acountsHTML = processItemList($acounts);
-print "$acountsHTML<br>";
-
 
 $project_params = Array();
 $project_params["select"] = "id,name,time_limit,archived";
@@ -57,34 +51,6 @@ $projects = $Nanda3Service->getProjects($project_params);
 $projectHTML = processItemList($projects);
 print "$projectHTML<br>";
 
-
-print "<br><strong>Labels</strong>:<br>";
-$label_params = Array();
-$label_params["namespace"] = "user";
-$labels = $Nanda3Service->getLabels($label_params);
-$labelsHTML = processItemList($labels);
-print "$labelsHTML<br>";
-
-print "<br><strong>Custom:</strong><br>";
-$method = "GET";
-$endpoint = "/timelog";
-$custom_params = Array();
-$custom_params["select"] = "id";
-$custom_params["where"] = "";
-$custom_params["order_field"] = "range_from";
-$custom_params["order_direction"] = "1";
-
-$customQuery = $Nanda3Service->sendRequest($method, $endpoint, $custom_params);
-
-$response_data = json_encode($customQuery["content"]);
-
-$response = json_decode($response_data);	
-//print_r($customQuery);
-foreach($customQuery as $qv => $qq) {
-	print "$qv - $qq,br>";
-}
-$customHTML = processItemList($response);
-print "$customHTML<br>";
 
 
 
