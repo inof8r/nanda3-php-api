@@ -1,7 +1,7 @@
 <?php
 session_start();
 // override include
- include("config.php");
+ include("../config.php");
 // Host running Nanda API
 
 include("../src/Nanda/Nanda3API.php");
