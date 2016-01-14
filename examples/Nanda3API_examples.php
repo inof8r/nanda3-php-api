@@ -1,14 +1,8 @@
 <?php
 session_start();
 // override include
-// include("config.php");
+ include("config.php");
 // Host running Nanda API
-//$apiHostname = "http://api-test.nanda.io";
-$apiHostname = "http://api.nanda.io";
-// Nanda 3 Account username
-$apiUserEmail = "carsten@presis.nl";
-// Nanda 3 Account password
-$apiUserPassword = "test";
 
 include("../src/Nanda/Nanda3API.php");
 
