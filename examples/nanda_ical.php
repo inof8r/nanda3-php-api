@@ -8,14 +8,9 @@ include("../src/Nanda/Nanda3API.php");
 // $apiUserPassword = $_GET["password"];
 
 
-if ($apiUserEmail == "") {
-	print "No username specified";
-	exit;
-}
-
-if ($apiUserPassword == "") {
-	print "No password specified";
-	exit;
+if ($_GET["username"] != "") {
+	$apiUserEmail = $_GET["username"];
+	$apiUserPassword = $_GET["password"];
 }
 
 
