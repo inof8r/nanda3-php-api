@@ -70,7 +70,7 @@ $method = "GET";
 $endpoint = "/timelog";
 $custom_params = Array();
 $custom_params["select"] = "id";
-$custom_params["where"] = "";
+$custom_params["where"] = "range_from >= 2015-12-31";
 $custom_params["order_field"] = "range_from";
 $custom_params["order_direction"] = "1";
 
