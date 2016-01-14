@@ -1,7 +1,22 @@
 <?php
 session_start();
-include("config.php");
+include("../config.php");
 include("../src/Nanda/Nanda3API.php");
+
+
+// $apiUserEmail = $_GET["username"];
+// $apiUserPassword = $_GET["password"];
+
+
+if ($apiUserEmail == "") {
+	print "No username specified";
+	exit;
+}
+
+if ($apiUserPassword == "") {
+	print "No password specified";
+	exit;
+}
 
 
 $LBC = "\n";
@@ -22,7 +37,7 @@ foreach($ical_headers as $h => $v) {
 
 
 $postvars["select"] = "*,owner";
-$postvars["where"] = "";
+$postvars["where"] = "range_from >= 2015-12-31";
 $postvars["order_field"] = "range_from";
 $postvars["order_direction"] = "-1";
 $postvars["limit_by"] = "";
@@ -33,6 +48,11 @@ $params["userEmail"] = $apiUserEmail;
 $params["userPassword"] = $apiUserPassword;
 $Nanda3Service = new Nanda3APIObject($params);
 $auth = $Nanda3Service->auth();
+
+
+	print "auth result: $auth";
+	exit;
+
 
 
 $response = $Nanda3Service->sendRequest("GET", "/timelog", $postvars);
